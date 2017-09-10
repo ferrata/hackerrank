@@ -32,7 +32,7 @@ def make_test_data():
     return test_data
 
 @ddt.ddt
-class ctci_test_case( unittest.TestCase ):
+class test_ctci( unittest.TestCase ):
     
     @ddt.data( *make_test_data() )
     @ddt.unpack
@@ -40,16 +40,18 @@ class ctci_test_case( unittest.TestCase ):
         output_dir = os.path.dirname( data['output'] )
         if not os.path.exists( output_dir ):
             os.makedirs( output_dir )
-        with open( data['input'], 'r' ) as input_file:
+        with open( data['input'], 'rU' ) as input_file:
             with open( data['output'], 'w' ) as output_file:
                 p = subprocess.Popen( module, stdin = input_file, stdout = output_file )
                 p.wait()
                 output_file.flush()
 
-        with open( data['output'], 'r' ) as output_file:
-            with open( data['expected'], 'r' ) as expected_file:
-                diff = difflib.SequenceMatcher( None, expected_file.read(), output_file.read() )
-                self.assertEqual( diff.ratio(), 1, '''Files are different:
+        with open( data['output'], 'rU' ) as output_file:
+            with open( data['expected'], 'rU' ) as expected_file:
+                expected = expected_file.read().splitlines( False )
+                output = output_file.read().splitlines( False )
+                diff = list( difflib.context_diff( output, expected ) )
+                self.assertEqual( diff, [], '''Files are different:
 output:   %s
 expected: %s
 ''' % ( data['output'], data['expected'] ) )
