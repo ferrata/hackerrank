@@ -32,7 +32,7 @@
 *.app
 
 # Byte-compiled / optimized / DLL files
-*.py[cod]
+*.py[cod] linguist-language=C++
 *$py.class
 
 # C extensions
