@@ -33,3 +33,9 @@
 
 # Byte-compiled / optimized / DLL files
 *.py[cod]
+
+# vscode temp data
+.ropeproject/
+
+# local data
+test_data/
