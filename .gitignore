@@ -1,5 +1,3 @@
-# linguist-language=C++
-
 # Prerequisites
 *.d
 
@@ -34,5 +32,4 @@
 *.app
 
 # Byte-compiled / optimized / DLL files
-*.py linguist-language=C++
-*.py[cod] linguist-language=C++
+*.py[cod]
