@@ -5,7 +5,10 @@
         "iosfwd": "cpp",
         "xhash": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp"
     },
     "python.pythonPath": "c:/python27/python.exe",
     "python.unitTest.unittestArgs": [
