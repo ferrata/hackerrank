@@ -11,7 +11,13 @@
         "list": "cpp",
         "xlocale": "cpp",
         "ostream": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "queue": "cpp",
+        "xstddef": "cpp",
+        "iostream": "cpp",
+        "functional": "cpp",
+        "ios": "cpp",
+        "xfunctional": "cpp"
     },
     "python.pythonPath": "c:/python27/python.exe",
     "python.unitTest.unittestArgs": [
