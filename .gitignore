@@ -38,4 +38,4 @@
 .ropeproject/
 
 # local data
-test_data/
+output/
