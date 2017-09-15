@@ -8,7 +8,10 @@
         "xutility": "cpp",
         "deque": "cpp",
         "initializer_list": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "xlocale": "cpp",
+        "ostream": "cpp",
+        "xiosbase": "cpp"
     },
     "python.pythonPath": "c:/python27/python.exe",
     "python.unitTest.unittestArgs": [
