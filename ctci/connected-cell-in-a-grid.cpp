@@ -49,10 +49,7 @@ bool operator!= ( const node_t& n1, const node_t& n2 ) {
     }
 
 // ostream& operator<< ( ostream& os, const node_t& n ) {  
-//         os 
-//             << n._i << ':' << n._j
-//             << (n._filled ? " filled" : "");
-//         return os;  
+//     return os << n._i << ':' << n._j << (n._filled ? " filled" : "");
 //     }  
     
 class graph_t {
