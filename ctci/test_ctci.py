@@ -24,7 +24,6 @@ def make_test_data():
             glob.glob( os.path.join( input_dir, module_name + '?[0-9]*.txt' ) )
             )
         for input_file in input_files:
-        #for input_file in glob.glob( os.path.join( input_dir, module_name + '?[0-9].txt' ) ):
             input_file_name = os.path.basename( input_file )
             expected_file = os.path.join( expected_dir, input_file_name )
             output_file = os.path.join( output_dir, input_file_name )
