@@ -19,7 +19,12 @@ def make_test_data():
     test_data = []
     for module_file in glob.glob( os.path.join( bin_dir, '*.exe' ) ):
         module_name = os.path.splitext( os.path.basename( module_file ) )[0]
-        for input_file in glob.glob( os.path.join( input_dir, module_name + '*.txt' ) ):
+        input_files = (
+            glob.glob( os.path.join( input_dir, module_name + '.txt' ) ) +
+            glob.glob( os.path.join( input_dir, module_name + '?[0-9]*.txt' ) )
+            )
+        for input_file in input_files:
+        #for input_file in glob.glob( os.path.join( input_dir, module_name + '?[0-9].txt' ) ):
             input_file_name = os.path.basename( input_file )
             expected_file = os.path.join( expected_dir, input_file_name )
             output_file = os.path.join( output_dir, input_file_name )
@@ -42,6 +47,7 @@ class test_ctci( unittest.TestCase ):
             os.makedirs( output_dir )
         with open( data['input'], 'rU' ) as input_file:
             with open( data['output'], 'w' ) as output_file:
+                # print '\nRunning %s with %s...' % ( module, input_file )
                 p = subprocess.Popen( module, stdin = input_file, stdout = output_file )
                 p.wait()
                 output_file.flush()
