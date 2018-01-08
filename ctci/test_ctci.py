@@ -6,7 +6,6 @@ import difflib
 import subprocess
 import threading
 
-
 def make_test_data():
     class my_list( list ):
         pass
@@ -39,7 +38,7 @@ def make_test_data():
 
 def kill(p):
     try:
-        p.kill()
+        p.terminate()
     except OSError:
         pass # ignore
 
