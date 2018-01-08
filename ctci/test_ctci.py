@@ -4,6 +4,8 @@ import unittest
 import ddt
 import difflib
 import subprocess
+import threading
+
 
 def make_test_data():
     class my_list( list ):
@@ -35,6 +37,12 @@ def make_test_data():
             test_data.append( data )
     return test_data
 
+def kill(p):
+    try:
+        p.kill()
+    except OSError:
+        pass # ignore
+
 @ddt.ddt
 class test_ctci( unittest.TestCase ):
     
@@ -48,7 +56,10 @@ class test_ctci( unittest.TestCase ):
             with open( data['output'], 'w' ) as output_file:
                 # print '\nRunning %s with %s...' % ( module, input_file )
                 p = subprocess.Popen( module, stdin = input_file, stdout = output_file )
+                t = threading.Timer(10, kill, [p])
+                t.start()
                 p.wait()
+                t.cancel()
                 output_file.flush()
 
         with open( data['output'], 'rU' ) as output_file:
