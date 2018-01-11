@@ -8,13 +8,39 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g", "${file}",
-                "-o", "${workspaceRoot}/.out/${fileBasenameNoExtension}.exe"
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceRoot}/.out/${fileBasenameNoExtension}.exe"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "taskName": "build with g++ (profiler)",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-pg",
+                "${file}",
+                "-o",
+                "${workspaceRoot}/.out/${fileBasenameNoExtension}.exe"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "taskName": "build with go",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "build",
+                "-o",
+                "${workspaceRoot}/.out/${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "group": "build"
         }
     ]
 }

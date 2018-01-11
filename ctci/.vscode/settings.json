@@ -17,7 +17,9 @@
         "iostream": "cpp",
         "functional": "cpp",
         "ios": "cpp",
-        "xfunctional": "cpp"
+        "xfunctional": "cpp",
+        "utility": "cpp",
+        "stack": "cpp"
     },
     "python.pythonPath": "c:/python27/python.exe",
     "python.unitTest.unittestArgs": [
